@@ -1,0 +1,72 @@
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories (if you use virtual environments)
+venv/
+env/
+
+# Ignore database files (SQLite by default, adjust for other databases)
+db.sqlite3
+*.sqlite3
+
+# Ignore sensitive settings files
+*.env
+
+# Ignore generated static files
+/staticfiles/
+
+# Ignore user-uploaded media files (if applicable)
+/media/
+
+# Ignore secret key files
+*.secret
+
+# Ignore log files
+*.log
+
+# Ignore configuration files
+*.cfg
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Python environment configuration
+pipfile.lock
+Pipfile
+
+# Ignore IDE-specific files and directories
+.idea/
+.vscode/
+
+# Ignore any local development settings files
+*.local_settings.py
+
+# Ignore database migrations (if using Django's default migrations)
+*/migrations/
+
+# Ignore compiled JavaScript and CSS
+*.min.js
+*.min.css
+
+# Ignore node_modules directory (if using JavaScript libraries)
+node_modules/
+
+# Ignore generated static files (collected during 'collectstatic' command)
+/static/
+
+# Ignore virtual environment activation scripts (if using virtual environments)
+bin/
+include/
+lib/
+lib64/
+Scripts/
+
+# Ignore backup files (commonly created by text editors)
+*.bak
+
+# Ignore any temporary files or directories
+*.tmp
+*.swp
