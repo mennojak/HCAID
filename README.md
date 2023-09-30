@@ -16,7 +16,7 @@ The primary objective of this project is to demonstrate the stark difference bet
 **Technology Stack:**
 
 - Django: The web application is built using Django, a Python-based web framework known for its simplicity and robustness.
-- Jupyter Notebook: The pre-trained machine learning models used within the application where trained within the jupyter notebook found in the repository.
+- Jupyter Notebook: The pre-trained machine learning model was trained with jupyter notebook (the original notebook is also found in the repository).
 - Vercel Hosting: The application is temporarily hosted on the Vercel platform to meet assignment criteria.
 
 **Usage:**
