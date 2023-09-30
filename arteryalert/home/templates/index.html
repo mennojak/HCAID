@@ -1,28 +1,19 @@
 {% extends "base.html" %} 
 
-{% load static %} 
-
-{% block head%} 
-<link rel="stylesheet" href="{% static 'style.css' %}"> 
-{% endblock %} 
-
 {% block content %}
     <div>
-      <h2>Heart disease predictor</h2>
+      <h2>Artery Alert</h2>
       <p>
-        Try out our machine learning model found below. Fill in the information and see whether or not you have a heart disease. 
+        This web application is developed as part of the A.I. minor for the subject Human Centric A.I. Design. 
+        The assignment for this subject involves the creation of two machine learning applications, both trained on the same dataset but with contrasting ethical approaches. 
+        Both applications are designed to predict the likelihood of heart disease based on user-provided health information. 
+        To get started with the demonstraton of either the good or bad version of the application you can simply look to the menu bar in the top left.
       </p>
-      <br />
-      <form action="" method="POST">
-        {% csrf_token %}
-        <input type="number" name="age" class="field" placeholder="Age"/>
-        <input type="string" name="sex" class="field" placeholder="Your gender ('M' or 'F')"/>
-
-        <input class="btn" id="submit" type="submit" value="Predict" />
-      </form>
-      <br /><br />
-      {% if error != "" %}
-        <p>{{ error }}</p>
-      {% endif %}
-    </div>
+      <p>
+        Another part of the assignment was the creation of a poster, which explains the two applications and how they deal with the ethical issues of privacy, bias and explainability. 
+        This poster is also shown here below.  
+      </p>
+      <p>
+        [image of the poster]
+      </p>
 {% endblock %}

@@ -1,20 +1,14 @@
 {% extends "base.html" %} 
 
-{% load static %} 
-
-{% block head%} 
-<link rel="stylesheet" href="{% static 'style.css' %}"> 
-{% endblock %} 
-
 {% block content %}
     <div>
-      <h2>Het uiteindelijke resultaat</h2>
+      <h2>Het uiteindelijke resultaat van de <bold>GOOD APP</bold></h2>
       {% if result == 1 %}
         <p>You have heart problems</p>
         {%else%}
         <p>You don't have heart problems</p>
         {%endif%}
       <br />
-      <a href="{% url 'index' %}"><button class="btn">Terug naar het begin</button></a>
+      <a href="{% url 'goodapp' %}"><button class="btn">Terug naar het begin</button></a>
     </div>
 {% endblock %}

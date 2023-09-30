@@ -20,5 +20,7 @@ from home import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.index, name="index"),
+    path("goodapp/", views.goodapp, name="goodapp"),
+    path("badapp/", views.badapp, name="badapp"),
 ]
 

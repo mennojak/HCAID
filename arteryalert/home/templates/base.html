@@ -3,14 +3,39 @@
   <head>
     <html lang="nl"></html>
     <title>HCAID</title>
-    {% block head %} {% endblock %}
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}"> 
+
   </head>
   <body>
     <header>
       <h1>Human Centric A.I. Design</h1>
     </header>
-        <div class="container">
-                {% block content %} {% endblock %}
-        </div>
+    <div>
+      Go back to the start <a href="/">here</a>
+    </div>
+    <div>
+      See the good app <a href="/goodapp">here</a>
+    </div>
+    <div>
+      See the bad app <a href="/badapp">here</a>
+    </div>
+    <div class="container">
+            {% block content %} {% endblock %}
+    </div>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="copyright">&copy; Artery Alert. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    
   </body>
 </html>

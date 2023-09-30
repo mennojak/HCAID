@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+
+{% block content %}
+    <div>
+      <h2>Heart disease predictor</h2>
+      <p>
+        Try out our machine learning model found below. Fill in the information and see whether or not you have a heart disease. Keep in mind that this prediction might not be correct; always consult a doctor if you're in doubt.
+      </p>
+      <br />
+      <form action="" method="POST">
+        {% csrf_token %}
+        <input type="number" name="age" class="field" placeholder="Age"/>
+        <input type="string" name="sex" class="field" placeholder="Your gender ('M' or 'F')"/>
+
+        <input class="btn" id="submit" type="submit" value="Predict" />
+      </form>
+      <br /><br />
+      {% if error != "" %}
+        <p>{{ error }}</p>
+      {% endif %}
+    </div>
+{% endblock %}
