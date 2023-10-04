@@ -8,12 +8,20 @@ from sklearn.preprocessing import OneHotEncoder
 
 STATIC_DIR = os.getcwd() + '/home/notebooks/'
 MODEL_FILE = 'heart_disease_model.pkl'
-NORM_FILE = 'normalization_stats.pkl'
+DATASET_FILE = 'heart.csv'
 
 def predict(rowdata):
     # Load the pre-trained model
     with open(STATIC_DIR + MODEL_FILE, 'rb') as model_file:
         loaded_model = pickle.load(model_file)
+
+    # Load the dataset "heart.csv" to get the original category mappings
+    dataset_path = os.path.join(STATIC_DIR, DATASET_FILE)
+    df = pd.read_csv(dataset_path)
+
+    # Define categorical and numerical columns
+    categorical_cols = ['Sex', 'ChestPainType', 'FastingBS', 'RestingECG', 'ExerciseAngina', 'ST_Slope']
+    numerical_cols = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
 
     # Handle user input
     user_input_dict = json.loads(rowdata)
@@ -22,56 +30,33 @@ def predict(rowdata):
     user_input_dict.pop('email', None)
     user_input_dict.pop('csrfmiddlewaretoken', None)
 
-    # Define categorical columns for feature encoding
-    categorical_cols = ['Sex', 'ChestPainType', 'FastingBS', 'RestingECG', 'ExerciseAngina', 'ST_Slope']
+    # Transform input data (which is all strings) to the right numerical format
+    for key in numerical_cols:
+        user_input_dict[key] = int(user_input_dict[key])
+    user_input_dict['FastingBS'] = int(user_input_dict['FastingBS'])
 
-    # Define numerical columns for feature scaling
-    numerical_cols = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
+    # Perform the same preprocessing as the jupyter notebook, but adding our input row into the X dataframe to preprocess it the same way
+    X = df.drop('HeartDisease', axis=1)
+    y = df['HeartDisease']
 
-    # Preprocess the data
-    preprocessed_data = preprocess_user_input(user_input_dict, categorical_cols, numerical_cols)
-    print(preprocessed_data.values)
+    X.loc[len(X)] = user_input_dict # Append the user data to the dataset
+
+    encoder = OneHotEncoder(drop='first', sparse=False)
+    X_encoded = encoder.fit_transform(X[categorical_cols])
+    X_processed = np.hstack((X_encoded, X[numerical_cols]))
+
+    # Take the user input out of the X dataframe
+    user_input_processed = X_processed[-1]
+    user_input_processed = user_input_processed.reshape(1, -1)
 
     # Use the pre-trained model to make predictions
-    prediction = loaded_model.predict(preprocessed_data)
+    prediction = loaded_model.predict(user_input_processed)
 
     # Use the pre-trained model to get class probabilities
-    class_probabilities = loaded_model.predict_proba(preprocessed_data)
+    class_probabilities = loaded_model.predict_proba(user_input_processed)
 
     # Extract the probability of the positive class (class 1)
     positive_class_probability = class_probabilities[:, 1].tolist()
 
-    print(prediction, class_probabilities, positive_class_probability)
     # Return the prediction and probability as a JSON response
     return JsonResponse({'prediction': prediction.tolist(), 'probability': positive_class_probability})
-
-
-def preprocess_user_input(user_input_dict, categorical_cols, numerical_cols):
-    # Create a DataFrame from user input
-    user_input_df = pd.DataFrame(user_input_dict, index=[0])
-
-    # Convert numerical columns to numeric types (in case some values are still strings)
-    for col in numerical_cols:
-        user_input_df[col] = pd.to_numeric(user_input_df[col], errors='coerce')
-
-    # Label Encoding for Categorical Columns
-    from sklearn.preprocessing import LabelEncoder
-
-    label_encoder = LabelEncoder()
-    for col in categorical_cols:
-        user_input_df[col] = label_encoder.fit_transform(user_input_df[col])
-
-    # Load normalization statistics
-    with open(STATIC_DIR + NORM_FILE, 'rb') as norm_file:
-        normalization_stats = pickle.load(norm_file)
-
-    # Feature Scaling
-    numerical_data = user_input_df[numerical_cols]
-    mean = normalization_stats['mean']
-    std = normalization_stats['std']
-    normalized_data = (numerical_data - mean) / std
-
-    # Combine encoded and scaled numerical data
-    preprocessed_data = pd.concat([user_input_df.drop(numerical_cols, axis=1), normalized_data], axis=1)
-
-    return preprocessed_data
