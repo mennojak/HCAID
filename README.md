@@ -17,7 +17,7 @@ The primary objective of this project is to demonstrate the stark difference bet
 
 - Django: The web application is built using Django, a Python-based web framework known for its simplicity and robustness.
 - Jupyter Notebook: The pre-trained machine learning model was trained with jupyter notebook (the original notebook is also found in the repository).
-- Vercel Hosting: The application is temporarily hosted on the Vercel platform to meet assignment criteria.
+- PythonAnywhere Hosting: The application is temporarily hosted on the PythonAnywhere platform to meet assignment criteria.
 
 **Usage:**
 
