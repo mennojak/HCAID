@@ -56,7 +56,7 @@ def predict(rowdata):
     class_probabilities = loaded_model.predict_proba(user_input_processed)
 
     # Extract the probability of the positive class (class 1)
-    positive_class_probability = class_probabilities[:, 1].tolist()
+    positive_class_probability = class_probabilities[:, 1]
 
-    # Return the prediction and probability as a JSON response
-    return JsonResponse({'prediction': prediction.tolist(), 'probability': positive_class_probability})
+    # Return the prediction and probability as a Python dictionary
+    return {'prediction': prediction[0], 'probability': positive_class_probability[0]}
