@@ -21,7 +21,7 @@ The primary objective of this project is to demonstrate the stark difference bet
 
 **Usage:**
 
-The ethical and unethical AI applications can be temporarily accessed online for testing and demonstration purposes. Simply visit the following [URL](https://www.youtube.com/watch?v=dQw4w9WgXcQ) (might not work anymore, since I'll probably stop hosting after the course assignment is finished).
+The ethical and unethical AI applications can be temporarily accessed online for testing and demonstration purposes. Simply visit the following [URL](https://mennojak.pythonanywhere.com/) (please note that the URL may stop working, since I'll probably stop hosting it when the course assignment is completed).
 
 **Disclaimer:**
 
