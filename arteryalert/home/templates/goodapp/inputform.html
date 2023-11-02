@@ -1,94 +1,385 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-    <div>
-      <h2>Heart disease predictor</h2>
-      <p>
-        Try out our machine learning model found below. Fill in the information and see whether or not you have a heart disease. Keep in mind that this prediction might not be correct; always consult a doctor if you're in doubt.
-      </p>
-      <br />
-      <form method="POST" action="">
-        {% csrf_token %}
-        <div class="row gtr-uniform">
-            <div class="col-6 col-12-xsmall">
-                <input type="number" name="Age" id="Age" value="" placeholder="Age" required/>
-            </div>
-            <div class="col-6 col-12-xsmall">
-                <select name="Sex" id="Sex" required>
-                    <option value="">- Gender -</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-            </div>
-            <!-- Break -->
-            <div class="col-12">
-                <select name="ChestPainType" id="ChestPainType" required>
-                    <option value="">- Chest Pain Type -</option>
-                    <option value="TA">TA</option>
-                    <option value="ASY">ASY</option>
-                    <option value="NAP">NAP</option>
-                    <option value="ATA">ATA</option>
-                </select>
-            </div>
-            <!-- Break -->
-            <div class="col-6 col-12-xsmall">
-                <input type="number" name="RestingBP" id="RestingBP" value="" placeholder="Resting BP (0 and 200)" required/>
-            </div>
-            <div class="col-6 col-12-xsmall">
-                <input type="number" name="Cholesterol" id="Cholesterol" value="" placeholder="Cholesterol (0 and 603)" required/>
-            </div>
-            <!-- Break -->
-            <div class="col-12">
-                <select name="FastingBS" id="FastingBS" required>
-                    <option value="">- Fasting Blood Sugar -</option>
-                    <option value="0">Below 120mg/dl</option>
-                    <option value="1">Above 120mg/dl</option>
-                </select>
-            </div>
-            <!-- Break -->
-            <div class="col-12">
-                <select name="RestingECG" id="RestingECG" required>
-                    <option value="">- Resting ECG -</option>
-                    <option value="Normal">Normal</option>
-                    <option value="LVH">LVH</option>
-                    <option value="ST">ST</option>
-                </select>
-            </div>
-            <!-- Break -->
-            <div class="col-6 col-12-xsmall">
-                <input type="number" name="MaxHR" id="MaxHR" value="" placeholder="Max HR (60 and 202)" required/>
-            </div>
-            <div class="col-6 col-12-xsmall">
-                <select name="ExerciseAngina" id="ExerciseAngina" required>
-                    <option value="">- Exercise-Induced Angina -</option>
-                    <option value="Y">Yes</option>
-                    <option value="N">No</option>
-                </select>
-            </div>
-            <!-- Break -->
-            <div class="col-12">
-                <input type="number" name="Oldpeak" id="Oldpeak" value="" placeholder="Oldpeak -2.6 and 6.2" required/>
-            </div>
-            <!-- Break -->
-            <div class="col-12">
-                <select name="ST_Slope" id="ST_Slope" required>
-                    <option value="">- ST Slope -</option>
-                    <option value="Flat">Flat</option>
-                    <option value="Up">Up</option>
-                    <option value="Down">Down</option>
-                </select>
-            </div>
-            <!-- Break -->
-            <div class="col-12">
-                <ul class="actions">
-                    <li><input type="submit" value="Predict" class="primary" /></li>
-                </ul>
+<section class="u-clearfix u-section-1" style="padding-left: 5em; padding-right: 5em;" id="sec-4246">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-row">
+                    <div class="u-container-align-center u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                        <div class="u-container-layout u-valign-middle u-container-layout-1">
+                            <h2 class="u-align-center u-text u-text-custom-color-1 u-text-default u-text-1">Guarding
+                                Your Heart with the Power of AI</h2>
+                            <p class="u-align-center u-text u-text-default u-text-2">In the intricate labyrinth of our
+                                cardiovascular system, the heart reigns supreme. But sometimes, even the strongest of
+                                forts have vulnerabilities. With the ever-growing rates of heart diseases worldwide,
+                                early detection and prevention have become more vital than ever.&nbsp;<br>
+                                <br>Harnessing the prowess of advanced artificial intelligence, Artery Alert isn't just
+                                another health application. It's your personalized sentinel, meticulously trained to
+                                predict your predisposition to heart diseases. By analyzing a myriad of factors, Artery
+                                Alert offers a glimpse into your heart's future, empowering you with the knowledge to
+                                take preventative action.<br>
+                                <br>Whether you have a history of heart ailments in your family or you're just proactive
+                                about your health, Artery Alert serves as a beacon, guiding you through the uncertain
+                                waters of cardiovascular health.Together, let's make every heartbeat
+                                count.&nbsp;<br>Welcome to Artery Alert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </form>
-      <br /><br />
-      {% if error != "" %}
-        <p>{{ error }}</p>
-      {% endif %}
     </div>
+</section>
+<section class="u-clearfix u-palette-2-light-1 u-section-2" id="carousel_817d">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width-xs u-image u-image-circle u-preserve-proportions u-image-1" alt=""
+            data-image-width="360" data-image-height="360" data-animation-name="customAnimationIn"
+            data-animation-duration="1500" data-animation-delay="0">
+            <div class="u-preserve-proportions-child" style="padding-top: 100%;"></div>
+        </div>
+        <div class="u-expanded-width-xs u-image u-image-circle u-preserve-proportions u-image-2" alt=""
+            data-image-width="1000" data-image-height="673" data-animation-name="customAnimationIn"
+            data-animation-duration="1500" data-animation-delay="750">
+            <div class="u-preserve-proportions-child" style="padding-top: 100%;"></div>
+        </div>
+        <div class="u-image u-image-circle u-image-3" alt="" data-image-width="700" data-image-height="700"
+            data-animation-name="customAnimationIn" data-animation-duration="1500">
+        </div>
+        <div class="u-expanded-width-xs u-image u-image-circle u-preserve-proportions u-image-4" alt=""
+            data-image-width="626" data-image-height="430" data-animation-name="customAnimationIn"
+            data-animation-duration="1500">
+            <div class="u-preserve-proportions-child" style="padding-top: 100%;"></div>
+        </div>
+        <div class="u-container-align-center u-container-style u-group u-preserve-proportions u-shape-circle u-white u-group-1"
+            data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">
+            <div class="u-container-layout u-valign-middle u-container-layout-1">
+                <h2 class="u-align-center u-text u-text-body-color u-text-default u-text-1">Disclaimer</h2>
+                <p class="u-align-center u-text u-text-2">Using Artery Alert is not a substitute for professional
+                    medical advice, diagnosis, or treatment. This AI's predictions are preliminary, and users engage
+                    with it at their own risk, acknowledging that they cannot guarantee absolute accuracy or
+                    reliability. Always consult with qualified healthcare professionals regarding any medical concerns
+                    before making healthcare decisions.</p>
+                <a href="#sec-4156"
+                    class="u-active-palette-2-light-1 u-align-center u-border-2 u-border-active-white u-border-hover-white u-border-palette-2-light-1 u-btn u-btn-round u-button-style u-custom-font u-font-pt-sans u-hover-palette-2-light-1 u-none u-radius-50 u-text-active-white u-text-hover-white u-btn-1">Make
+                    prediction</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="u-align-center u-clearfix u-white u-section-3" style="padding: 5em;" id="sec-03af">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Frequently Asked Questions</h2>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+        <div class="u-accordion u-faq u-spacing-10 u-accordion-1">
+            <div class="u-accordion-item">
+                <a class="active u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-1"
+                    id="link-accordion-ae6a" aria-controls="accordion-ae6a" aria-selected="true">
+                    <span class="u-accordion-link-text">How does Artery Alert predict my risk of heart disease?
+                    </span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg
+                            class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                            <use xlink:href="#svg-a823"></use>
+                        </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-a823" style="">
+                            <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                        </svg></span>
+                </a>
+                <div class="u-accordion-active u-accordion-pane u-container-style u-accordion-pane-1"
+                    id="accordion-ae6a" aria-labelledby="link-accordion-ae6a">
+                    <div class="u-container-layout u-container-layout-1">
+                        <div class="fr-view u-clearfix u-rich-text u-text">
+                            <p>Artery Alert employs an advanced Decision Tree algorithm that takes into account various
+                                aspects of your health data, such as age, gender, blood pressure, cholesterol levels,
+                                and lifestyle factors. Our model is designed to provide precise predictions, boasting an
+                                accuracy score of 84%. To enhance your understanding, we also include a
+                                visual representation of the final Decision Tree, allowing you to see how your risk is
+                                assessed. The probability of heart disease is determined based on the predictions made
+                                by this Decision Tree.</p>
+                            <img class="u-expanded-width u-home-image u-home-image-1"
+                                src="{% static 'assets/images/decision_tree_visualization.png' %}"
+                                data-image-width="1600" data-image-height="900">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-accordion-item">
+                <a class="u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-2"
+                    id="link-accordion-8339" aria-controls="accordion-8339" aria-selected="false">
+                    <span class="u-accordion-link-text">How accurate is Artery Alert in predicting heart disease?<br>
+                    </span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-2"><svg
+                            class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                            <use xlink:href="#svg-7d7e"></use>
+                        </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-7d7e" style="">
+                            <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                        </svg></span>
+                </a>
+                <div class="u-accordion-pane u-container-style u-accordion-pane-2" id="accordion-8339"
+                    aria-labelledby="link-accordion-8339">
+                    <div class="u-container-layout u-container-layout-2">
+                        <div class="fr-view u-clearfix u-rich-text u-text">
+                            <p>Artery Alert is highly accurate, with an impressive 84% accuracy rate. While it's a
+                                valuable tool for assessing your risk, it should not replace professional medical
+                                advice. It's designed to complement your health management and keep you informed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-accordion-item">
+                <a class="u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-3"
+                    id="link-accordion-1c17" aria-controls="accordion-1c17" aria-selected="false">
+                    <span class="u-accordion-link-text">Is my personal and health data safe with Artery Alert? <br>
+                    </span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-3"><svg
+                            class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                            <use xlink:href="#svg-d58c"></use>
+                        </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-d58c" style="">
+                            <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                        </svg></span>
+                </a>
+                <div class="u-accordion-pane u-container-style u-accordion-pane-3" id="accordion-1c17"
+                    aria-labelledby="link-accordion-1c17">
+                    <div class="u-container-layout u-container-layout-3">
+                        <div class="fr-view u-clearfix u-rich-text u-text">
+                            <p>Absolutely. Artery Alert prioritizes your privacy by not saving your data. We believe in
+                                keeping you anonymous, which is even better than just securely storing your information.
+                                Your data remains fully anonymous, providing an extra layer of security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-accordion-item">
+                <a class="u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-4"
+                    id="link-2878" aria-controls="2878" aria-selected="false">
+                    <span class="u-accordion-link-text">Can Artery Alert replace my regular cardiac check-ups?<br>
+                    </span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-4"><svg
+                            class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                            <use xlink:href="#svg-bb35"></use>
+                        </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-bb35">
+                            <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                        </svg></span>
+                </a>
+                <div class="u-accordion-pane u-container-style u-accordion-pane-4" id="2878"
+                    aria-labelledby="link-2878">
+                    <div class="u-container-layout u-container-layout-4">
+                        <div class="fr-view u-clearfix u-rich-text u-text">
+                            <p>No, Artery Alert is not intended to replace professional healthcare
+                                consultations. It's a supplementary tool designed to help you monitor and manage your
+                                heart health. Regular check-ups with healthcare professionals are essential to
+                                accurately assess, diagnose, and manage heart diseases and other health conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-accordion-item">
+                <a class="u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-5"
+                    id="link-22f3" aria-controls="22f3" aria-selected="false">
+                    <span class="u-accordion-link-text">How can I interpret the results provided by Artery Alert?
+                    </span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-5"><svg
+                            class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                            <use xlink:href="#svg-78a2"></use>
+                        </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-78a2">
+                            <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                        </svg></span>
+                </a>
+                <div class="u-accordion-pane u-container-style u-accordion-pane-5" id="22f3"
+                    aria-labelledby="link-22f3">
+                    <div class="u-container-layout u-container-layout-5">
+                        <div class="fr-view u-clearfix u-rich-text u-text">
+                            <p>Artery Alert provides a risk assessment along with insightful information about
+                                heart health. The results are designed to be user-friendly, offering straightforward
+                                insights into your cardiovascular risk profile. Nevertheless, for a thorough
+                                understanding and advice on managing your heart health, it's always recommended to
+                                consult with a healthcare professional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-accordion-item">
+                <a class="u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-6"
+                    id="link-442a" aria-controls="442a" aria-selected="false">
+                    <span class="u-accordion-link-text">Does Artery Alert offer advice on reducing my risk of heart
+                        disease? </span><span
+                        class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-6"><svg
+                            class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                            <use xlink:href="#svg-631d"></use>
+                        </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-631d">
+                            <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                        </svg></span>
+                </a>
+                <div class="u-accordion-pane u-container-style u-accordion-pane-6" id="442a"
+                    aria-labelledby="link-442a">
+                    <div class="u-container-layout u-container-layout-6">
+                        <div class="fr-view u-clearfix u-rich-text u-text">
+                            <p>Yes, Artery Alert provides general advice and tips on managing and potentially
+                                reducing your risk of heart disease. These might involve lifestyle changes, dietary
+                                advice, and stress management tips. However, for a personalized health plan, it is
+                                crucial to consult with healthcare providers who can assess your overall health and
+                                create a tailored strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="u-accordion-item">
+                    <a class="u-accordion-link u-active-palette-2-light-3 u-button-style u-grey-5 u-hover-palette-2-light-3 u-text-active-palette-2-base u-text-black u-text-hover-palette-2-base u-accordion-link-7"
+                        id="link-f791" aria-controls="f791" aria-selected="false">
+                        <span class="u-accordion-link-text">Can I use Artery Alert without any medical knowledge?
+                        </span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-7"><svg
+                                class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style="">
+                                <use xlink:href="#svg-e56a"></use>
+                            </svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-e56a">
+                                <path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path>
+                            </svg></span>
+                    </a>
+                    <div class="u-accordion-pane u-container-style u-accordion-pane-7" id="f791"
+                        aria-labelledby="link-f791">
+                        <div class="u-container-layout u-container-layout-7">
+                            <div class="fr-view u-clearfix u-rich-text u-text">
+                                <p>Certainly! We strive to make Artery Alert as user-friendly as possible. While our model may ask for specific details like your resting electrocardiogram, we understand that not everyone may know these values. Which is why we assist you further by providing explanations of average values for all data points. This way, you can confidently provide the required information even if you're not familiar with the medical jargon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+    </div>
+</section>
+
+
+<section class="u-clearfix u-section-3" style="padding: 5em; padding-top: 0;" id="sec-4156">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Make prediction</h2>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1" style="padding: 1em;"></div>
+        <div class="u-border-10 u-border-palette-2-base u-carousel u-carousel-duration-250 u-carousel-fade u-expanded-width u-form u-radius-20 u-form-1"
+            id="carousel-2e14">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="row gtr-uniform">
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your age?</h6>
+                        </label>
+                        <input type="number" name="Age" id="Age" value="" placeholder="Age"
+                            class="u-input u-input-rectangle" required />
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your gender?</h6>
+                        </label>
+                        <select name="Sex" id="Sex" class="u-input u-input-rectangle" class="u-input u-input-rectangle"
+                            required>
+                            <option value="">- Gender -</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What type of Chest pain signals do you have?</h6>
+                        </label>
+                        <select name="ChestPainType" id="ChestPainType" class="u-input u-input-rectangle" required>
+                            <option value="">- Chest Pain Type -</option>
+                            <option value="TA">Typical Angina</option>
+                            <option value="ASY">Asymptomatic</option>
+                            <option value="NAP">Non-Anginal Pain</option>
+                            <option value="ATA">Atypical Angina</option>
+                        </select>
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your resting blood pressure?</h6>
+                        </label>
+                        <input type="number" name="RestingBP" id="RestingBP" value=""
+                            placeholder="Resting blood pressure (between 0 and 200)" class="u-input u-input-rectangle"
+                            required />
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your cholesterol</h6>
+                        </label>
+                        <input type="number" name="Cholesterol" id="Cholesterol" value=""
+                            placeholder="Cholesterol (between 0 and 603)" class="u-input u-input-rectangle" required />
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your fasting blood sugar?</h6>
+                        </label>
+                        <select name="FastingBS" id="FastingBS" class="u-input u-input-rectangle" required>
+                            <option value="">- Fasting Blood Sugar -</option>
+                            <option value="0">Below or equal to 120mg/dl</option>
+                            <option value="1">Above 120mg/dl</option>
+                        </select>
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your resting electo cardiogram (ECG) results?</h6>
+                        </label>
+                        <select name="RestingECG" id="RestingECG" class="u-input u-input-rectangle" required>
+                            <option value="">- Resting ECG -</option>
+                            <option value="Normal">Normal</option>
+                            <option value="LVH">LVH</option>
+                            <option value="ST">ST</option>
+                        </select>
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your max heart rate?</h6>
+                        </label>
+                        <input type="number" name="MaxHR" id="MaxHR" value=""
+                            placeholder="Max heart rate (between 60 and 202)" class="u-input u-input-rectangle"
+                            required />
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>Do you experience exercise induced angina?</h6>
+                        </label>
+                        <select name="ExerciseAngina" id="ExerciseAngina" class="u-input u-input-rectangle" required>
+                            <option value="">- Exercise-Induced Angina -</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What is your oldpeak (ST depression induced by exercise relative to rest)?</h6>
+                        </label>
+                        <input type="number" name="Oldpeak" id="Oldpeak" value=""
+                            placeholder="Oldpeak (between -2.6 and 6.2)" class="u-input u-input-rectangle" required />
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <label class="u-label">
+                            <h6>What does the slope of the peak exercise ST segment look like?</h6>
+                        </label>
+                        <select name="ST_Slope" id="ST_Slope" class="u-input u-input-rectangle" required>
+                            <option value="">- ST Slope -</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Up">Up</option>
+                            <option value="Down">Down</option>
+                        </select>
+                    </div>
+
+                    <div class="u-form-group" style="padding-right: 10em; padding-left: 10em;">
+                        <input type="submit" value="Predict" class="u-btn" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}

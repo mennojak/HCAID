@@ -22,8 +22,8 @@ def goodapp(request):
             # Convert the dictionary to a JSON string
             user_data = json.dumps(user_input_dict)
             
-            # Call the predict function with the JSON string
-            context['result'] = modelrunner.predict(user_data)
+            # Call the predict function with the JSON string, and a boolean to see whether the requests comes from the good or bad app
+            context = modelrunner.predict(user_data, False)
             return render(request, "goodapp/result.html", context)
         else:
             context["error"] = "Fill in all the fields (correctly)"
@@ -45,8 +45,8 @@ def badapp(request):
             # Convert the dictionary to a JSON string
             user_data = json.dumps(user_input_dict)
             
-            # Call the predict function with the JSON string
-            context['result'] = modelrunner.predict(user_data)
+            # Call the predict function with the JSON string, and a boolean to see whether the requests comes from the good or bad app
+            context = modelrunner.predict(user_data, True)
             return render(request, "badapp/result.html", context)
         else:
             context["error"] = "Fill in all the fields (correctly)"

@@ -1,15 +1,48 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% block content %}
-    <div>
-      <h2>Het uiteindelijke resultaat van de <bold>GOOD APP</bold></h2>
-      {% if result.prediction == 1 %}
-        <p>You have heart problems</p>
-        {%else%}
-        <p>You don't have heart problems</p>
-        {%endif%}
-      <p>Probability {{ result.probability }}</p>
-      <br />
-      <a href="{% url 'goodapp' %}"><button class="btn">Terug naar het begin</button></a>
+
+<section class="u-clearfix u-section-1" id="sec-4246">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div class="u-container-align-center u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+            <div class="u-container-layout u-valign-middle u-container-layout-1">
+              <h2 class="u-align-center u-text u-text-custom-color-1 u-text-default u-text-1">
+                Your Heart Disease Probability: {{probability}}%</h2>
+              <p class="u-align-center u-text u-text-grey-50 u-text-2" style="padding-left: 10em; padding-right: 10em;">
+                Your heart disease probability reflects your current status based on the prediction of our model. We're here to offer valuable insights based on your input. Here's how to interpret the result:<br><br>
+                <ul class="u-text-default" style="padding-left: 10em; padding-right: 10em;">
+                  <li>
+                    0-25%: Fantastic News! You're in excellent health. Maintain your healthy heart practices.
+                  </li>
+                  <br>
+                  <li>
+                    25-50%: Room for Improvement. Consider embracing a healthier lifestyle with regular exercise and a balanced diet.
+                  </li>
+                  <br>
+                  <li>
+                    50-75%: Increased Risk. We recommend consulting your healthcare provider for a comprehensive checkup. Schedule an appointment within the next two weeks.
+                  </li>
+                  <br>
+                  <li>
+                    75-100%: High Risk. Please contact your healthcare provider immediately and arrange a checkup within the next three days.
+                  </li>
+                </ul>
+              </p>
+              <h5 class="u-align-center u-text u-text-custom-color-1 u-text-default u-text-1" style="padding-left: 10em; padding-right: 10em;">
+                Remember that our recommendations are based on predictions and might not always be accurate. If you have any doubts, seek professional advice.
+              </h5>
+              <div class="u-align-center u-text-1" style="padding-top: 3em;">
+                  <a href="{% url 'goodapp' %}" class="u-btn"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Back to the Beginning</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
 {% endblock %}

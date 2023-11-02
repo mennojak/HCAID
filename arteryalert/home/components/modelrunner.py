@@ -10,7 +10,7 @@ STATIC_DIR = os.getcwd() + '/home/notebooks/'
 MODEL_FILE = 'heart_disease_model.pkl'
 DATASET_FILE = 'heart.csv'
 
-def predict(rowdata):
+def predict(row_data, is_bad_app):
     # Load the pre-trained model
     with open(STATIC_DIR + MODEL_FILE, 'rb') as model_file:
         loaded_model = pickle.load(model_file)
@@ -24,7 +24,7 @@ def predict(rowdata):
     numerical_cols = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
 
     # Handle user input
-    user_input_dict = json.loads(rowdata)
+    user_input_dict = json.loads(row_data)
 
     # Remove fields that are not used for the classification
     user_input_dict.pop('email', None)
@@ -58,5 +58,11 @@ def predict(rowdata):
     # Extract the probability of the positive class (class 1)
     positive_class_probability = class_probabilities[:, 1]
 
+
+    # Bad app scales the result between 25% and 50%
+    if is_bad_app:
+        scaled_probability = 0.25 + 0.25 * (positive_class_probability[0])
+        positive_class_probability[0] = scaled_probability
+
     # Return the prediction and probability as a Python dictionary
-    return {'prediction': prediction[0], 'probability': positive_class_probability[0]}
+    return {'probability': round(positive_class_probability[0] * 100, 2)}

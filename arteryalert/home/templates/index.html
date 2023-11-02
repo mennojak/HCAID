@@ -1,19 +1,26 @@
 {% extends "base.html" %} 
+{% load static %}
 
 {% block content %}
-    <div>
-      <h2>Artery Alert</h2>
-      <p>
-        This web application is developed as part of the A.I. minor for the subject Human Centric A.I. Design. 
-        The assignment for this subject involves the creation of two machine learning applications, both trained on the same dataset but with contrasting ethical approaches. 
-        Both applications are designed to predict the likelihood of heart disease based on user-provided health information. 
-        To get started with the demonstraton of either the good or bad version of the application you can simply look to the menu bar in the top left.
-      </p>
-      <p>
-        Another part of the assignment was the creation of a poster, which explains the two applications and how they deal with the ethical issues of privacy, bias and explainability. 
-        This poster is also shown here below.  
-      </p>
-      <p>
-        [image of the poster]
-      </p>
+<section
+class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-palette-2-light-2 u-home-section-1"
+id="carousel_e8e9">
+      <img class="u-expanded-width u-home-image u-home-image-1" src="{% static 'assets/images/image.png' %}" data-image-width="1600"
+        data-image-height="900">
+      <div
+        class="u-border-2 u-border-palette-5-base u-home-container-style u-group u-radius-20 u-shape-round u-white u-home-group-1">
+        <div class="u-home-container-layout u-home-container-layout-1">
+          <h2 class="u-align-center u-text u-text-custom-color-1 u-text-1"> We are Artery Alert</h2>
+          <p class="u-align-center u-text u-text-grey-50 u-text-2"><b>We are a company that strives to provide the best
+              medical advice via the implementation of AI.</b>
+          </p>
+          <p class="u-align-left u-large-text u-spacing-12 u-text u-text-variant u-text-3">This web application is
+            developed as part of the A.I. minor for the subject Human Centric A.I. Design. The assignment for this subject
+            involves the creation of two machine learning applications, both trained on the same <a href="https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction" target="_blank">dataset</a> but with
+            contrasting ethical approaches. Both applications are designed to predict the likelihood of heart disease
+            based on user-provided health information.<br>
+          </p>
+        </div>
+      </div>
+</section>
 {% endblock %}
