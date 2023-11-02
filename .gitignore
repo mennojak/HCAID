@@ -48,7 +48,6 @@ Pipfile
 */migrations/
 
 # Ignore compiled JavaScript and CSS
-*.min.js
 *.min.css
 
 # Ignore node_modules directory (if using JavaScript libraries)
