@@ -35,7 +35,11 @@
                 We have a special offer just for you! <br>Get 10% off a one-time purchase of our heart-boosting supplement. <br>Or, choose a healthy lifestyle with a 30% discount on a yearly subscription. <br>Don't miss out on this limited-time opportunity!
               </h5>
               <div class="u-align-center u-text-1" style="padding-top: 3em;">
-                  <a href="{% url 'badapp' %}" class="u-btn">See our supplements store&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                  <!-- <a onclick="" class="u-btn">See our supplements store&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a> -->
+
+                  <div class="popup u-btn" onclick="myFunction()">See our supplements store&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                    <span class="popuptext" id="myPopup">Not implemented yet</span>
+                  </div>
               </div>
             </div>
           </div>
@@ -44,5 +48,13 @@
     </div>
   </div>
 </section>
+
+<script>
+  // When the user clicks on <div>, open the popup
+  function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+  </script>
 
 {% endblock %}
